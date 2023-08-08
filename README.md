@@ -2,8 +2,25 @@
 Objetivo desse execício é praticar fundamentos de WebScraping e familiarizar-se com o framework 
 [Scrapy](https://scrapy.org/).
 
+## Instruções para o exercício:
+1. Você não está sozinho, se encontrar alguma dificuldade busque a resposta, mas se perceber que não
+está progredindo, me mande uma mensagem.
+2. Procure fazer commits com frequência, é sempre melhor vários pequenos commits do que um commit enorme.
+    * Seja descritivo no texto do commit
+3. Não tenha pressa, faça quando for possível, o objetivo é praticar e desenvolver.
+4. Faça um log paralelo, em texto ou markdown, registrando data e hora que comecou a trabalhar no 
+exercício e data e hora que parou. Inclua uma breve menção do que foi feito nesse período. 
+    * Isso vai me ajudar a estimar quanto tempo uma determinada tarefa vai levar e a identificar em
+    que você precisa reforçar.
+    * Não se preocupe em ser muito preciso, nem em "*estou levando muito tempo em X*", isso é apenas 
+    uma estimativa.
+    * Exemplo de entrada:
+        ```
+        20/10 16h as 18h -> Escrevi as funções de processamento dos dados
+        21/10 13h as 13:30h -> Testei e corrigi bug na função que processa datas.
+        ```
 
-## Requisitos
+## Requisitos do exercício
 1. Utilização do Scrapy para a raspagem dos dados.
 2. Seguir o esquema e formatos apresentados em `Especificações técnicas -> Item 4`
 3. Fazer a transmissão de dado *relevante* entre páginas num framework assíncrono.
