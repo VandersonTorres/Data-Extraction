@@ -8,7 +8,7 @@
     * Leitura da documentação de raspagem de conteúdo dinâmico (https://docs.scrapy.org/en/latest/topics/dynamic-content.html).
 
 * **10/08 - 19:30h às 22:00h:** 
-    * Teste de raspagem dos dados;
+    * Teste de raspagem dos dados usando o 'scrapy shell' e 'fetch';
     * Armazenamento do teste em .JSON (para análise);
     * Pesquisa e estudo sobre raspagem;
     * Leitura da documentação do Scrapy;
