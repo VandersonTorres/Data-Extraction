@@ -8,20 +8,17 @@ class TokenSpider(scrapy.Spider):
     ]
 
     def parse(self, response):
-        for token in response.css('div.VERIFICAR TAG'):
-            yield {
-                'treasure_bond_title': token.css('VERIFICAR TAG').getall(),
-                'expiration_date': token.css('VERIFICAR TAG').getall(),
-                'record_date': token.css('VERIFICAR TAG').getall(),
-                'interest_rate': token.css('VERIFICAR TAG').getall(),
-                'bond_was_last_updated_at': token.css('VERIFICAR TAG').getall(),
-            }
+        treasure_bond_title = response.css('.text-sm span::text').getall()
+        bond_was_last_updated_at = response.css('.sm\:text-right span::text').getall()
 
-        # Extrair dados de uma próxima página, se houver...
-        next_page = response.css('li.next a::attr(href)').get()
-        if next_page is not None:
-            next_page = response.urljoin(next_page)
-            yield scrapy.Request(next_page, callback=self.parse)
+        for token in response.css('div.flex'):
+            yield {
+                'treasure_bond_title': token.css('div.text-sm span::text').get(),
+                # 'expiration_date': token.css(''),
+                # 'record_date': token.css(''),
+                # 'interest_rate': token.css(''),
+                'bond_was_last_updated_at': token.css('.sm\:text-right span::text').getall()
+            }
 
 # PARA EXECUTAR A EXTRAÇÃO DOS DADOS, NO TERMINAL: 
 # Entre na pasta do projeto com "cd .\<pasta>"
