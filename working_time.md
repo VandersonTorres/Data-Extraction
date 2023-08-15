@@ -15,3 +15,10 @@
     * Leitura da documentação sobre uso de seletores;
     * Tentativa de raspagem seletiva dos dados solicitados... (sem sucesso);
     * Pesquisas internet.
+
+* **14/08 - 19:00h às 22:30h:** 
+    * Rastreamento da origem do conteúdo dinâmico;
+    * Busca nas Dev Tools (Network) pelas requisições;
+    * Encontrei o arquivo dos dados .json;
+    * Modificação do Spider para raspagem dos dados solicitados de acordo com o objeto JSON encontrado;
+    * Execução sem sucesso (não consigo direcionar o Spider para o array de 'compra')

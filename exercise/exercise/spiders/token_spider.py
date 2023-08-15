@@ -1,23 +1,21 @@
 import scrapy
+import json
 
 class TokenSpider(scrapy.Spider):
     name = "token"
-
-    start_urls = [
-        'https://taxas-tesouro.com/'
-    ]
+    page = 1
+    allowed_domains = ["taxas-tesouro.com"]
+    start_urls = ['https://taxas-tesouro.com/page-data/index/page-data.json']
 
     def parse(self, response):
-        treasure_bond_title = response.css('.text-sm span::text').getall()
-        bond_was_last_updated_at = response.css('.sm\:text-right span::text').getall()
-
-        for token in response.css('div.flex'):
+        data = json.loads(response.text)
+        for token in data["result"]:
             yield {
-                'treasure_bond_title': token.css('div.text-sm span::text').get(),
-                # 'expiration_date': token.css(''),
-                # 'record_date': token.css(''),
-                # 'interest_rate': token.css(''),
-                'bond_was_last_updated_at': token.css('.sm\:text-right span::text').getall()
+                'treasure_bond_title': token["name"],
+                # 'expiration_date': token["maturity_at"],
+                # 'record_date': token["name"],
+                # 'interest_rate': token["rate"],
+                # 'bond_was_last_updated_at': token.css('.sm\:text-right span::text').getall()
             }
 
 # PARA EXECUTAR A EXTRAÇÃO DOS DADOS, NO TERMINAL: 
