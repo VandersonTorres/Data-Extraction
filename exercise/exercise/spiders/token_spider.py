@@ -3,7 +3,6 @@ import json
 
 class TokenSpider(scrapy.Spider):
     name = "token"
-    page = 1
     allowed_domains = ["taxas-tesouro.com"]
     start_urls = ['https://taxas-tesouro.com/page-data/index/page-data.json']
 
