@@ -28,5 +28,5 @@ class TokenSpider(scrapy.Spider):
                 'expiration_date': key["maturity_at"],
                 'record_date': datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
                 'interest_rate': key["rate"],
-                # 'bond_was_last_updated_at': token.css('.sm\:text-right span::text').getall()
+                # 'bond_was_last_updated_at': response.css('div span.text-gray-600::text').getall()
             }
