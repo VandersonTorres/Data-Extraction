@@ -1,5 +1,6 @@
 import scrapy
 import json
+import datetime
 
 class TokenSpider(scrapy.Spider):
     name = "token"
@@ -8,18 +9,24 @@ class TokenSpider(scrapy.Spider):
 
     def parse(self, response):
         data = json.loads(response.text)
-        for token in data["result"]:
+        atualizacao = data['result']['data']['dataJson']['mercado']
+        titulos = data['result']['data']['dataJson']['compra']
+        resgate = data['result']['data']['dataJson']['venda']
+        
+        # ESPECIFICAÇÕES TÉCNICAS:
+        # Ítem 3. AS LINHAS DO CAMPO RESGATE DEVEM SER IGNORADAS
+        # (Coloquei apenas para evidenciar que o 'resgate' está no Dict 'venda')
+
+        atualizado_em = yield {'last_updated_at': atualizacao["str_ts"]}
+
+        # Armazenei o 'yield' acima numa variável para tentar usar o valor na última requisição do spider
+        # Porém ainda sem sucesso...
+
+        for key in titulos:
             yield {
-                'treasure_bond_title': token["name"],
-                # 'expiration_date': token["maturity_at"],
-                # 'record_date': token["name"],
-                # 'interest_rate': token["rate"],
+                'treasure_bond_title': key["name"],
+                'expiration_date': key["maturity_at"],
+                'record_date': datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                'interest_rate': key["rate"],
                 # 'bond_was_last_updated_at': token.css('.sm\:text-right span::text').getall()
             }
-
-# PARA EXECUTAR A EXTRAÇÃO DOS DADOS, NO TERMINAL: 
-# Entre na pasta do projeto com "cd .\<pasta>"
-# Execute o comando "scrapy crawl token"
-
-# PARA SALVAR OS DADOS EM UM ARQUIVO .JSON (por exemplo), NO TERMINAL:
-# Execute o comando "scrapy crawl token -O token.json"

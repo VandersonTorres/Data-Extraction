@@ -5,7 +5,8 @@
     * Criação/ ativação Ambiente Virtual;
     * Criação do módulo de Web Scraping (scrapy);
     * Montagem da estrutura inicial do Spider;
-    * Leitura da documentação de raspagem de conteúdo dinâmico (https://docs.scrapy.org/en/latest/topics/dynamic-content.html).
+    * Leitura da documentação de raspagem de conteúdo dinâmico (https://docs.scrapy.org/en/latest/topics/dynamic-content.html);
+    * Commits usando Git BASH.
 
 * **10/08 - 19:30h às 22:00h:** 
     * Teste de raspagem dos dados usando o 'scrapy shell' e 'fetch';
@@ -14,11 +15,20 @@
     * Leitura da documentação do Scrapy;
     * Leitura da documentação sobre uso de seletores;
     * Tentativa de raspagem seletiva dos dados solicitados... (sem sucesso);
-    * Pesquisas internet.
+    * Pesquisas internet;
+    * Commits usando Git BASH.
 
 * **14/08 - 19:00h às 22:30h:** 
     * Rastreamento da origem do conteúdo dinâmico;
     * Busca nas Dev Tools (Network) pelas requisições;
     * Encontrei o arquivo dos dados .json;
     * Modificação do Spider para raspagem dos dados solicitados de acordo com o objeto JSON encontrado;
-    * Execução sem sucesso (não consigo direcionar o Spider para o array de 'compra')
+    * Execução sem sucesso (não consigo direcionar o Spider para o objeto de 'compra');
+    * Commits usando Git BASH.
+
+* **15/08 - 19:00h às 22:10h:** 
+    * Modificação do Spider para raspagem dos dados a partir do API Endpoint encontrado nas Dev Tools;
+    * Sucesso na requisição dos dados solicitados nas Especificações técnicas, com exceção do último dado;
+    * Durante o dia fiz pesquisas no StackOverFlow e também assisti à vídeos como esse: "https://www.youtube.com/watch?v=xjieRVnuPcQ&t=5s";
+    * Consegui iterar sobre os objetos JSON aninhados;
+    * Commits usando Git BASH.
