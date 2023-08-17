@@ -32,3 +32,9 @@
     * Durante o dia fiz pesquisas no StackOverFlow e também assisti à vídeos como esse: "https://www.youtube.com/watch?v=xjieRVnuPcQ&t=5s";
     * Consegui iterar sobre os objetos JSON aninhados;
     * Commits usando Git BASH.
+
+* **16/08 - 20:30h às 23:10h:** 
+    * Modificação do Spider para raspagem do 'Atualizado em' com seletor, e demais dados dos títulos com API JSON do Endpoint;
+    * Realizado nova requisição para o documento da API, e criada função de callback
+    * Converti o 'bond_was_last_updated_at' para formato ISO e Horário ZULU;
+    * Commits usando Git BASH.
