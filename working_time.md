@@ -38,3 +38,12 @@
     * Realizado nova requisição para o documento da API, e criada função de callback
     * Converti o 'bond_was_last_updated_at' para formato ISO e Horário ZULU;
     * Commits usando Git BASH.
+
+* **17/08 - 20:10h às 23:50h:** 
+    * Desenvolvimento do filtro para dropping com Item Pipeline;
+    * Passagem de argumento arbitrário em settings.py;
+    * Funções para conversão de dados de acordo com as Especificações Tecnicas;
+    * Conversão de datas;
+    * Testes para verificação de formatação e extração;
+    * Acredito ter cumprido os requisitos do teste, porém vou tentar implementar testes unitários antes de enviar o pull request;
+    * Commits usando Git BASH.

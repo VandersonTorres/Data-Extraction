@@ -25,10 +25,36 @@ class TokenSpider(scrapy.Spider):
         last_updated_at_iso_format = parse_utc_plus_3_last_updated_at.isoformat()
 
         for key in treasure_bonds:
+            rate_as_float = float(key["rate"])
+            record_date_as_datetime = datetime.datetime.now()
+
             yield {
-                'treasure_bond_title': key["name"],
-                'expiration_date': key["maturity_at"],
-                'record_date': datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                'interest_rate': key["rate"],
-                'bond_was_last_updated_at': last_updated_at_iso_format
+                'TREASURE_BOND_TITLE': key["name"],
+                'HISTORIC_DATA': key["hist"],
+                'EXPIRATION_DATE': key["maturity_at"],
+                'RECORD_DATE': record_date_as_datetime,
+                'INTEREST_RATE': rate_as_float,
+                'BOND_WAS_LAST_UPDATED_AT': last_updated_at_iso_format
             }
+
+# CHECK LIST DE VERIFICAÇÃO DO EXERCÍCIO
+# 1. Utilização do Scrapy para a Raspagem dos dados:            OK;
+# 2. Seguir o esquema e formatos de Especificações Técnicas:    OK;
+# 3. Fazer transmissão de dado em framework assíncrono:         OK;
+# 4. Permitir a filtragem de items utilizando um ItemPipeline:  OK;
+
+# ESPECIFICAÇÕES TÉCNICAS
+# 1. Acessar o site https://taxas-tesouro.com/:                             OK;
+# 2. Extrair da página inicial a informação "Atualizado em {DATA} {HORA}":  OK;
+# 3. Acessar Títulos Disponíveis para Investimento (sem campo Resgate):     OK;
+# 4. Extrair as informações do título, incluindo dados históricos:          OK;
+
+# 4.1 Campos para preenchimento:
+#       treasure_bond_title: STR        OK;
+#       expiration_date: STR            OK;
+#       record_date: DATETIME           OK; 
+#       interest_rate: FLOAT            OK;
+#       bond_was_last_updated_at: STR   OK;
+
+# 4.2 O útlimo campo será sempre o mesmo valor da página inicial:       OK;
+# 5. Utilizar um filtro com argumento arbitrário em um Item Pipeline:   OK.
