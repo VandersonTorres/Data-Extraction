@@ -44,6 +44,7 @@
     * Passagem de argumento arbitrário em settings.py;
     * Funções para conversão de dados de acordo com as Especificações Tecnicas;
     * Conversão de datas;
+    * Extração dos dados históricos de cada Título;
     * Testes para verificação de formatação e extração;
-    * Acredito ter cumprido os requisitos do teste, porém vou tentar implementar testes unitários antes de enviar o pull request;
+    * Acredito ter cumprido os requisitos do teste, porém vou tentar implementar testes unitários antes de enviar pull request;
     * Commits usando Git BASH.
