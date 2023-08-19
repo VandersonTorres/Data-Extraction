@@ -55,3 +55,9 @@
     * Assisti vídeos sobre unittest
     * Criei um template de teste usando o unittest
     * Commits usando Git BASH.
+
+* **19/08 - 14:00h às 19:45h:** 
+    * Criei dois testes unitário, um para verificar a função parse() e outro para verificar a função parse_treasure_bonds();
+    * Extração atualizada dos dados para o arquivo /treasure_bonds.json;
+    * Commits usando Git BASH;
+    * Pull request.
