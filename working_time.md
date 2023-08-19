@@ -48,3 +48,10 @@
     * Testes para verificação de formatação e extração;
     * Acredito ter cumprido os requisitos do teste, porém vou tentar implementar testes unitários antes de enviar pull request;
     * Commits usando Git BASH.
+
+* **18/08 - 20:40h às 23:40h:** 
+    * Adicionei comentários nos códigos
+    * Li sobre o unittest e Spider Contracts
+    * Assisti vídeos sobre unittest
+    * Criei um template de teste usando o unittest
+    * Commits usando Git BASH.

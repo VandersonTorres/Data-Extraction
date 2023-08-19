@@ -69,6 +69,7 @@ ITEM_PIPELINES = {
    "exercise.pipelines.FilterItemPipeline": 100,
 }
 
+# Pass the argument below
 FILTER_ARG = '2022-08-17 00:00:00'
 
 # Enable and configure the AutoThrottle extension (disabled by default)

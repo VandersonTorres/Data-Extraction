@@ -7,23 +7,31 @@ class TokenSpider(scrapy.Spider):
     allowed_domains = ["taxas-tesouro.com"]
     start_urls = ['https://taxas-tesouro.com/']
 
-    def parse(self, response):        
+    def parse(self, response):
+        # Extract last updated time from the initial webpage
         last_updated_at = response.css('div span.text-gray-600::text').getall()
         yield {'last_updated_at': last_updated_at}
+        
+        # Send a request to get treasure bond data
         yield scrapy.Request(
             'https://taxas-tesouro.com/page-data/index/page-data.json', 
             callback=self.parse_treasure_bonds
         )
 
     def parse_treasure_bonds(self, response):
+        # Load JSON data from the response
         data = json.loads(response.text)
+        
+        # Extract treasure bond data from the JSON
         treasure_bonds = data['result']['data']['dataJson']['compra']
         
+        # Extract last updated time from the JSON and convert to ISO format and UTC Zulu
         last_updated_at = data['result']['data']['dataJson']['mercado']['str_ts']
         parse_dt_last_updated_at = datetime.datetime.strptime(last_updated_at, '%d/%m/%Y %H:%M')
         parse_utc_plus_3_last_updated_at = parse_dt_last_updated_at + datetime.timedelta(hours=3)
         last_updated_at_iso_format = parse_utc_plus_3_last_updated_at.isoformat()
 
+        # Yield each treasure bond record
         for key in treasure_bonds:
             rate_as_float = float(key["rate"])
             record_date_as_datetime = datetime.datetime.now()
