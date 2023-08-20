@@ -9,7 +9,6 @@ class TokenSpider(scrapy.Spider):
 
     def parse(self, response):
         self.last_updated_at = response.css('div span.text-gray-600::text').getall()
-        yield {'last_updated_at': self.last_updated_at}
         
         yield scrapy.Request(
             'https://taxas-tesouro.com/page-data/index/page-data.json', 
@@ -29,11 +28,13 @@ class TokenSpider(scrapy.Spider):
 
         for key in treasure_bonds:
             for hist_item in key['hist']:
+                record_date_str = hist_item['ts']  # Obtém a string da chave 'record_date'
+                record_date_as_dt = datetime.datetime.strptime(record_date_str, "%Y-%m-%dT%H:%M:%S")
+
                 yield {
-                    'históric_data': hist_item,
                     'treasure_bond_title': key["name"],
                     'expiration_date': key["maturity_at"],
-                    'record_date': datetime.datetime.now(),
-                    'interest_rate': float(key["rate"]),
+                    'record_date': record_date_as_dt,
+                    'interest_rate': float(hist_item["rate"]),
                     'bond_was_last_updated_at': last_updated_at_iso_format
                 }

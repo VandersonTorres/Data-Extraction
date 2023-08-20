@@ -73,7 +73,6 @@ class TestTokenSpider(unittest.TestCase):
 
         for result in results:
             self.assertIsInstance(result['treasure_bond_title'], str)
-            # self.assertIsInstance(result['HISTORIC_DATA'], list)
             self.assertIsInstance(result['expiration_date'], str)
             self.assertIsInstance(result['record_date'], datetime.datetime)
             self.assertIsInstance(result['interest_rate'], float)

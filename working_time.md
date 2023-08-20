@@ -72,3 +72,9 @@
     * Teste de extração dos dados;
     * Uso de Meta Argument do Scrapy para preservar o dado 'Atualizado_em' da requisição do primeiro método;
     * Commits usando Git BASH.
+
+* **20/08 - 16:20h às 19:15h:** 
+    * Compreensão do dado solicitado 'record_date';
+    * Adaptação do spider para extrair corretamente o record_date e o interest_rate;
+    * Conversão do record_date de 'str' para 'datetime'     
+    * Commits usando Git BASH.
