@@ -70,4 +70,5 @@
     * Ajuste do spider para entrada individual de dados históricos;
     * Ajuste do spider para acrescentar os quesitos do item 4. das especificações tecnicas nos dados históricos;
     * Teste de extração dos dados;
+    * Uso de Meta Argument do Scrapy para preservar o dado 'Atualizado_em' da requisição do primeiro método;
     * Commits usando Git BASH.
