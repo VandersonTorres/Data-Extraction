@@ -61,3 +61,13 @@
     * Extração atualizada dos dados para o arquivo /treasure_bonds.json;
     * Commits usando Git BASH;
     * Pull request.
+
+* **20/08 - 10:30h às 16:20h:** 
+    * Revisão de código requerida;
+    * Exclusão de comments desnecessários;
+    * Exclusão de arumento arbitrário do 'settings.py';
+    * Desativação temporária dos pipelines para ajuste do spider;
+    * Ajuste do spider para entrada individual de dados históricos;
+    * Ajuste do spider para acrescentar os quesitos do item 4. das especificações tecnicas nos dados históricos;
+    * Teste de extração dos dados;
+    * Commits usando Git BASH.

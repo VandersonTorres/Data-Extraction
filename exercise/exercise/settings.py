@@ -7,9 +7,6 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-import datetime
-
-
 BOT_NAME = "exercise"
 
 SPIDER_MODULES = ["exercise.spiders"]
@@ -65,12 +62,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-   "exercise.pipelines.FilterItemPipeline": 100,
-}
-
-# Pass the argument below
-FILTER_ARG = '2022-08-17 00:00:00'
+#ITEM_PIPELINES = {
+#    "tutorial.pipelines.TutorialPipeline": 300,
+#}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

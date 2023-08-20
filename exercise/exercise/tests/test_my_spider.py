@@ -8,21 +8,14 @@ from spiders.token_spider import TokenSpider
 class TestTokenSpider(unittest.TestCase):
 
     def setUp(self):
-        # Creating an instace of my spider class
         self.spider = TokenSpider()
 
     def test_parse(self):
-        # Testing 'parse method' of spider
-        # Verifying if the object extracted of Selector contains 'Updated'
-
-        fake_response = TextResponse(url='https://taxas-tesouro.com', body=b'<div><span class="text-gray-600">FAKE MESSAGE</span></div>')
+        fake_response = TextResponse(url='https://taxas-tesouro.com', body=b'<div><span class="text-gray-600">Updated</span></div>')
         result = list(self.spider.parse(fake_response))
         self.assertEqual(result[0]['last_updated_at'], ['Updated'])
 
     def test_parse_treasure_bonds(self):
-        # Testing 'parse_treasure_bonds method' of spider
-        # Verifying if types of data are according to expected
-
         mock_data = {
             "result": {
                 "data": {
@@ -32,8 +25,16 @@ class TestTokenSpider(unittest.TestCase):
                                 "name": "Tesouro Selic 2026",
                                 "hist": [
                                     {
-                                        "ts": "2023-08-17T15:19:00",
-                                        "rate": "0.0585"
+                                        "ts": "11111111",
+                                        "rate": "11111111"
+                                    },
+                                    {
+                                        "ts": "222222222",
+                                        "rate": "22222222"
+                                    },
+                                    {
+                                        "ts": "333333333",
+                                        "rate": "333333333"
                                     },
                                 ],
                                 "rate": 0.0585,  
@@ -43,8 +44,16 @@ class TestTokenSpider(unittest.TestCase):
                                 "name": "Tesouro Selic 2029",
                                 "hist": [
                                     {
-                                        "ts": "2023-08-17T15:19:00",
-                                        "rate": "0.1576"
+                                        "ts": "11111111",
+                                        "rate": "11111111"
+                                    },
+                                    {
+                                        "ts": "222222222",
+                                        "rate": "22222222"
+                                    },
+                                    {
+                                        "ts": "333333333",
+                                        "rate": "333333333"
                                     },
                                 ],
                                 "maturity_at": "2029-03-01",
@@ -63,12 +72,12 @@ class TestTokenSpider(unittest.TestCase):
         self.assertEqual(len(results), 2)
 
         for result in results:
-            self.assertIsInstance(result['TREASURE_BOND_TITLE'], str)
-            self.assertIsInstance(result['HISTORIC_DATA'], list)
-            self.assertIsInstance(result['EXPIRATION_DATE'], str)
-            self.assertIsInstance(result['RECORD_DATE'], datetime.datetime)
-            self.assertIsInstance(result['INTEREST_RATE'], float)
-            self.assertIsInstance(result['BOND_WAS_LAST_UPDATED_AT'], str)
+            self.assertIsInstance(result['treasure_bond_title'], str)
+            # self.assertIsInstance(result['HISTORIC_DATA'], list)
+            self.assertIsInstance(result['expiration_date'], str)
+            self.assertIsInstance(result['record_date'], datetime.datetime)
+            self.assertIsInstance(result['interest_rate'], float)
+            self.assertIsInstance(result['bond_was_last_updated_at'], str)
 
 if __name__ == '__main__':
     unittest.main()
