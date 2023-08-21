@@ -78,3 +78,7 @@
     * Adaptação do spider para extrair corretamente o record_date e o interest_rate;
     * Conversão do record_date de 'str' para 'datetime'     
     * Commits usando Git BASH.
+
+* **20/08 - 19:15h às 22:20h:** 
+    * Tentativa de realizar um unittest para testar os tipos dos dados retornados no spider, mas sem sucesso;     
+    * Commits usando Git BASH.
