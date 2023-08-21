@@ -82,3 +82,8 @@
 * **20/08 - 19:15h às 22:20h:** 
     * Tentativa de realizar um unittest para testar os tipos dos dados retornados no spider, mas sem sucesso;     
     * Commits usando Git BASH.
+
+* **20/08 - 22:50h às 00:25h:** 
+    * Adaptando o spider para retornar os dados na classe item;
+    * Criando novamente um pipeline;     
+    * Commits usando Git BASH.

@@ -2,7 +2,15 @@ import scrapy
 import json
 import datetime
 
+class TreasureBondItem(scrapy.Item):
+    treasure_bond_title = scrapy.Field()
+    expiration_date = scrapy.Field()
+    record_date = scrapy.Field()
+    interest_rate = scrapy.Field()
+    bond_was_last_updated_at = scrapy.Field()
+
 class TreasureBondsSpider(scrapy.Spider):
+
     name = "treasure_bonds"
     allowed_domains = ["taxas-tesouro.com"]
     start_urls = ['https://taxas-tesouro.com/']
@@ -31,10 +39,12 @@ class TreasureBondsSpider(scrapy.Spider):
                 record_date_str = hist_item['ts']
                 record_date_as_dt = datetime.datetime.strptime(record_date_str, "%Y-%m-%dT%H:%M:%S")
 
-                yield {
-                    'treasure_bond_title': key["name"],
-                    'expiration_date': key["maturity_at"],
-                    'record_date': record_date_as_dt,
-                    'interest_rate': float(hist_item["rate"]),
-                    'bond_was_last_updated_at': last_updated_at_iso_format
-                }
+                item = TreasureBondItem(
+                    treasure_bond_title = key["name"],
+                    expiration_date = key["maturity_at"],
+                    record_date = record_date_as_dt,
+                    interest_rate = float(hist_item["rate"]),
+                    bond_was_last_updated_at = last_updated_at_iso_format
+                )
+
+                yield item
