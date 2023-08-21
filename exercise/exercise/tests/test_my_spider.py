@@ -2,7 +2,7 @@ import datetime
 import json
 import unittest
 from scrapy.http import TextResponse, Request
-from spiders.treasure_bonds_spider import TreasureBondsSpider
+from spiders.treasure_bonds import TreasureBondsSpider
 
 class TestTreasureBondsSpider(unittest.TestCase):
 

@@ -1,12 +1,19 @@
-# Define here the models for your scraped items
-#
-# See documentation in:
-# https://docs.scrapy.org/en/latest/topics/items.html
-
 import scrapy
 
+class TreasureBondItem(scrapy.Item):
+    treasure_bond_title = scrapy.Field()
+    expiration_date = scrapy.Field()
+    record_date = scrapy.Field()
+    interest_rate = scrapy.Field()
+    bond_was_last_updated_at = scrapy.Field()
 
-class ExerciseItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    def as_ordered_dict(self):
+        ordered_fields = [
+            'treasure_bond_title',
+            'expiration_date',
+            'record_date',
+            'interest_rate',
+            'bond_was_last_updated_at'
+        ]
+        ordered_data = {field: self[field] for field in ordered_fields}
+        return ordered_data

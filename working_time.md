@@ -87,3 +87,8 @@
     * Adaptando o spider para retornar os dados na classe item;
     * Criando novamente um pipeline;     
     * Commits usando Git BASH.
+
+* **21/08 - 13:50h às 16:30h:** 
+    * Tentativa de filtragem de dados com Pipeline e Linha de Comando;
+    * Adaptação do spider para usar a classe Item;     
+    * Commits usando Git BASH.

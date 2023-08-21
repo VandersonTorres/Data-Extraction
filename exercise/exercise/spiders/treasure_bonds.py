@@ -1,19 +1,17 @@
 import scrapy
 import json
 import datetime
-
-class TreasureBondItem(scrapy.Item):
-    treasure_bond_title = scrapy.Field()
-    expiration_date = scrapy.Field()
-    record_date = scrapy.Field()
-    interest_rate = scrapy.Field()
-    bond_was_last_updated_at = scrapy.Field()
+from exercise.items import TreasureBondItem
 
 class TreasureBondsSpider(scrapy.Spider):
 
     name = "treasure_bonds"
     allowed_domains = ["taxas-tesouro.com"]
     start_urls = ['https://taxas-tesouro.com/']
+
+    def __init__(self, filter_date=None, *args, **kwargs):
+        super(TreasureBondsSpider, self).__init__(*args, **kwargs)
+        self.filter_date = filter_date
 
     def parse(self, response):
         self.last_updated_at = response.css('div span.text-gray-600::text').getall()
@@ -46,5 +44,7 @@ class TreasureBondsSpider(scrapy.Spider):
                     interest_rate = float(hist_item["rate"]),
                     bond_was_last_updated_at = last_updated_at_iso_format
                 )
+                
+                ordered_item = item.as_ordered_dict()
 
-                yield item
+                yield ordered_item
