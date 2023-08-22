@@ -93,8 +93,9 @@
     * Adaptação do spider para usar a classe Item;     
     * Commits usando Git BASH.
 
-* **21/08 - 19:20h às 21:10h:** 
+* **21/08 - 19:20h às 22:10h:** 
     * Filtragem dos dados de acordo com argumento arbitrário passado na linha de comando;
     * Detalhamento da execução do Spider em README.md;  
-    * Criação de um documento na raiz 'requirements.txt' com o comando 'pip freeze > requirements.txt'
+    * Criação de um documento na raiz 'requirements.txt' com o comando 'pip freeze > requirements.txt';
+    * retirada do diretório 'tests';
     * Commits usando Git BASH.
