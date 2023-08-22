@@ -9,9 +9,10 @@ class TreasureBondsSpider(scrapy.Spider):
     allowed_domains = ["taxas-tesouro.com"]
     start_urls = ['https://taxas-tesouro.com/']
 
-    def __init__(self, filter_date=None, *args, **kwargs):
-        super(TreasureBondsSpider, self).__init__(*args, **kwargs)
+    def __init__(self, filter_date=None):
         self.filter_date = filter_date
+        if self.filter_date:
+            self.filter_date = datetime.datetime.strptime(self.filter_date, "%Y-%m-%d %H:%M:%S")
 
     def parse(self, response):
         self.last_updated_at = response.css('div span.text-gray-600::text').getall()
@@ -19,7 +20,7 @@ class TreasureBondsSpider(scrapy.Spider):
         yield scrapy.Request(
             'https://taxas-tesouro.com/page-data/index/page-data.json', 
             callback=self.parse_treasure_bonds,
-            meta={'last_updated_at': self.last_updated_at[1]}
+            meta={'last_updated_at': self.last_updated_at[1], 'filter_date': self.filter_date}
         )
 
     def parse_treasure_bonds(self, response):

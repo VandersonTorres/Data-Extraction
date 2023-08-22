@@ -70,3 +70,15 @@ garantir que determinadas funções executam como esperado.
 - https://docs.scrapy.org/en/latest/topics/request-response.html#scrapy.http.Request.cb_kwargs
 
 - https://docs.scrapy.org/en/latest/topics/item-pipeline.html#topics-item-pipeline
+
+### SPIDER EXECUTION INSTRUCTIONS
+
+# Open a terminal at the root of project;
+* Run Spider:
+    - type in terminal: **scrapy crawl treasure_bonds**, then press ENTER;
+
+* Store scraped data into an archive:
+    - Type in terminal: **scrapy crawl treasure_bonds -O <archive_name>.<archive_format>**, then press ENTER (format example: .json | .csv);
+
+* Filter escraped data based on a cutoff date:
+    - Type in terminal: **scrapy crawl treasure_bonds -a filter_date='yyyy-mm-dd hh:mm:ss'**, then press ENTER.
