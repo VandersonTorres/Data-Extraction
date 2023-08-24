@@ -1,4 +1,4 @@
-# SCRAPE TREASURE BONDS
+# SCRAPING TREASURE BONDS
 
     This project uses Scrapy framework to extract the following data from 'https://taxas-tesouro.com/':
 
@@ -12,7 +12,7 @@
 
 ## SPIDER EXECUTION INSTRUCTIONS
 
-To run the Spider in your own machine, execute the following steps (considering that you've already activated your 'venv'): 
+To run the Spider in your own machine, execute the following steps: 
 
 ### Open a terminal at the root of project with 'cd command' (/exercise)
 * To Run Spider:
@@ -30,7 +30,7 @@ We just included within the project a 'tests' folder, which archive 'test_treasu
 
 ### Open a terminal at the root of project with 'cd command' (/exercise)
 
-* Type in terminal: **-m unittest discover**. 
+* Type in terminal: **python -m unittest discover**. 
 
 You will receive a response that contains information about the types of the returned data. 
 The expected types of data are the followings:
