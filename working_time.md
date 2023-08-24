@@ -99,3 +99,8 @@
     * Criação de um documento na raiz 'requirements.txt' com o comando 'pip freeze > requirements.txt';
     * retirada do diretório 'tests';
     * Commits usando Git BASH.
+
+* **24/08 - 13:20h às 14:15h:** 
+    * Implementação do Unittest;
+    * Adaptação do README.md;
+    * Commits usando Git BASH.

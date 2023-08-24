@@ -7,7 +7,7 @@ class TreasureBondItem(scrapy.Item):
     interest_rate = scrapy.Field()
     bond_was_last_updated_at = scrapy.Field()
 
-    def as_ordered_dict(self):
+    def order_response(self):
         ordered_fields = [
             'treasure_bond_title',
             'expiration_date',

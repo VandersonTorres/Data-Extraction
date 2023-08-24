@@ -46,6 +46,6 @@ class TreasureBondsSpider(scrapy.Spider):
                     bond_was_last_updated_at = last_updated_at_iso_format
                 )
                 
-                ordered_item = item.as_ordered_dict()
+                ordered_item = item.order_response()
 
                 yield ordered_item
