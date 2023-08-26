@@ -1,5 +1,4 @@
 import scrapy
-import json
 import datetime
 from exercise.items import TreasureBondItem
 
@@ -9,7 +8,8 @@ class TreasureBondsSpider(scrapy.Spider):
     allowed_domains = ["taxas-tesouro.com"]
     start_urls = ['https://taxas-tesouro.com/']
 
-    def __init__(self, filter_date=None):
+    def __init__(self, filter_date=None, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.filter_date = filter_date
         if self.filter_date:
             self.filter_date = datetime.datetime.strptime(self.filter_date, "%Y-%m-%d %H:%M:%S")
@@ -24,7 +24,7 @@ class TreasureBondsSpider(scrapy.Spider):
         )
 
     def parse_treasure_bonds(self, response):
-        data = json.loads(response.text)
+        data = response.json()
         
         treasure_bonds = data['result']['data']['dataJson']['compra']
         
@@ -46,6 +46,4 @@ class TreasureBondsSpider(scrapy.Spider):
                     bond_was_last_updated_at = last_updated_at_iso_format
                 )
                 
-                ordered_item = item.order_response()
-
-                yield ordered_item
+                yield item
